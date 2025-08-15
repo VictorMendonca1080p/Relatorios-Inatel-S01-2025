@@ -1,0 +1,11 @@
+10 Numero = 100 
+20 Resposta = RND (Numero)
+21 INPUT "Chute um numero qualquer: "; Chute
+30 IF Chute > Resposta THEN PRINT "Chute um numero menor"
+40 IF Chute < Resposta THEN PRINT "Chute um numero maior"
+50 IF Chute = Resposta THEN PRINT "VOCE ACERTOU!!!" ELSE GOTO 21
+60
+70
+80
+90
+500 END
