@@ -1,0 +1,13 @@
+10 INPUT "Digite a temperatura em graus celcius"; Temperatura
+20 Kelvin = Temperatura + 273
+30 Fahrenheit = (Temperatura * (9/5)) + 32
+40 
+50 
+60 PRINT "Temperatura em Celcius: "
+61 PRINT Temperatura
+70 PRINT "Temperatura em Kelvin: "
+71 PRINT Kelvin
+80 PRINT "Temperatura em Fahrenheit: "
+81 PRINT Fahrenheit
+90
+500 
