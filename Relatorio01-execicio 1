@@ -1,0 +1,12 @@
+10 PRINT "Exercicio 1, media das notas"
+20 PRINT " "
+30 PRINT "Digite 2 notas"
+40 INPUT "nota 1: "; A
+41 INPUT "nota 2: "; B
+42 soma = A + B
+43 media = soma / 2
+45 IF media >= 60 THEN PRINT "Aprovado direto"
+50 IF 30 <= media < 60 THEN INPUT "Insira a nota da NP3"; NP3 ELSE PRINT "Reprovado direto"
+60 IF NP3 > 50 THEN PRINT "Aprovado pela NP3" ELSE PRINT "Reprovado na NP3"
+    
+500 END 
