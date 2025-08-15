@@ -1,0 +1,11 @@
+10 INPUT "Digite sua altura"; altura
+11 INPUT "Digite seu peso"; peso
+20 LET IMC = (peso / (altura * altura))
+30 PRINT "seu IMC é: "
+40 PRINT IMC
+50 
+60 
+70 
+80 
+90
+500 
