@@ -1,18 +1,17 @@
 print("inicio do intervalo: ")
-local M = io.read ("*n")
+local M = io.read("*n")
 print("fim do intervalo: ")
-local N = io.read ("*n")
+local N = io.read("*n")
 print("multiplo a ser encontrado: ")
-local X = io.read ("*n")
+local X = io.read("*n")
 
 local numeros = {}
 for i = M, N, 1 do
   if i % X == 0 then
-    table.insert(numeros,i)
+    table.insert(numeros, i)
   end
 end
 
-for i, numeros in ipairs(numeros) do
-  print(nomeros[i])
+for i = 1, #numeros, 1 do
+  print(numeros[i])
 end
-
