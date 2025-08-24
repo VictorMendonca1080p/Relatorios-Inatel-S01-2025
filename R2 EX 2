@@ -1,0 +1,17 @@
+--inicializando o vetor tabela
+local tabela = {}
+for i = 1, 100, 1 do
+  tabela[i] = i
+end
+
+
+function MaiorDeTodos(vetor) -- encontra o maior valor em um array
+  local maior = -1 
+  for i = 1, #vetor, 1 do
+    if vetor[i] >= maior then
+      maior = vetor[i]
+    end
+  end
+  return maior
+end
+print(MaiorDeTodos(tabela))
