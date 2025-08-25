@@ -1,0 +1,27 @@
+function Calculadora (A,B,operator)
+  if operator == "+" then
+    return A+B
+  elseif operator == "-" then
+    return A-B
+  elseif operator == "*" then
+    return A*B
+  elseif operator == "/" then
+    return A/B
+  else
+    return "operador invalido"
+  end 
+end
+
+print ("digte 2 numeros e um operador")
+--numeros a serem operados
+print ("Numero 1: ")
+local A = io.read("*n")
+print ("Numero 2: ")
+local B = io.read("*n")
+print(A+B)
+--operador a ser usado
+print ("operador: ")
+local operador = io.read()
+print(operador) 
+
+print ("resultado: ", Calculadora(A,B,operador))
