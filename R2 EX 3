@@ -1,0 +1,29 @@
+--inicializando o vetor tabela
+local tabela = {}
+for i = 1, 100, 1 do
+  tabela[i] = i
+end
+
+ 
+
+function ParVerificator(vetor) -- encontra o maior valor em um array
+  local resultpar = {} 
+  for i = 1, #vetor, 1 do
+    if (vetor[i] % 2 == 0 )  then
+      resultpar[i] = vetor[i]
+    else
+      resultpar[i] = 0
+    end
+    --print ("RP", i, " ", resultpar[i])
+  end
+  return resultpar
+end
+
+local pares = ParVerificator(tabela) -- armazena valores pares 
+print ("São pares:")
+for i = 1, #pares, 1 do
+  if (pares[i] ~= 0) then
+    print (pares[i])
+  end
+end
+
