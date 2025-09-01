@@ -1,0 +1,51 @@
+use std::io;
+fn verificar_senha(senha: &str) -> bool
+{
+    if senha.len() >= 8 
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;
+    }
+
+    
+    
+    
+}
+
+
+
+
+fn main() 
+{
+  print!("Digite sua senha: ");
+  let mut entrada = String::new();
+  io::stdin()
+      .read_line(&mut entrada)
+      .expect("ERRO: digite novamente");
+
+  
+  loop 
+  {
+
+    if verificar_senha(&entrada) == true
+      {
+        println!("Senha válida! Acesso concedido");
+        break;
+      }
+      else
+      {
+        println!("Senha inválida!");
+        print!("Digite outra senha: ");
+        io::stdin()
+        .read_line(&mut entrada)
+        .expect("ERRO: digite novamente");
+      }
+  
+  }
+  
+
+  
+}
