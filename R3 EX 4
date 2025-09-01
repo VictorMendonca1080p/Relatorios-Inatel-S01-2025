@@ -1,0 +1,25 @@
+fn calcular_media(nota1: f64, nota2: f64, nota3: f64) -> f64 {
+    let np1 = nota1 * 0.2;
+    let np2 = nota2 * 0.3;
+    let np3 = nota3 * 0.5;
+
+    return (np1 + np2 + np3) / 1.0;
+}
+
+fn main() {
+    let nota1: f64 = 7.0;
+    let nota2: f64 = 6.0;
+    let nota3: f64 = 8.0;
+
+    let media: f64 = calcular_media(nota1, nota2, nota3);
+
+    println!("Média: {}", media);
+    if media >= 7.0 
+    {
+        println!("Aprovado!!!");
+    } 
+    else 
+    {
+        println!("Reprovado!!!");
+    }
+}
