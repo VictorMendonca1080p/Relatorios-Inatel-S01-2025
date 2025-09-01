@@ -1,0 +1,65 @@
+use std::io;
+ fn eh_par(numero: i32) -> bool
+{
+     if numero % 2 == 0
+     {
+       return true;
+     }
+     else
+     {
+       return false;
+     }
+}
+
+
+fn main() 
+{
+  
+  println!("Digite um par ou impar: ");
+  let mut entrada_a = String::new();
+  io::stdin()
+      .read_line(&mut entrada_a)
+      .expect("Falha ao ler entrada");
+  
+  let numero_a: i32 = entrada_a
+      .trim()
+      .parse()
+      .expect("Por favor, digite um número válido");
+
+  println!("Digite outro par ou impar: ");
+  let mut entrada_b = String::new();
+  io::stdin()
+      .read_line(&mut entrada_b)
+      .expect("Falha ao ler entrada");
+
+  let numero_b: i32 = entrada_b
+      .trim()
+      .parse()
+      .expect("Por favor, digite um número válido");
+
+  let soma = numero_a + numero_b;
+
+  if eh_par(soma) == true
+  {
+    if eh_par(numero_a)  
+    {
+      println!("O jogador A ganhou!!!")
+    }
+    else
+    {
+      println!("O jogador B ganhou!!!")
+    }
+  }
+  else
+  {
+    if eh_par(numero_b) 
+      {
+        println!("O jogador B ganhou!!!")
+      }
+      else
+      {
+        println!("O jogador A ganhou!!!")
+      }
+  }
+  
+}
