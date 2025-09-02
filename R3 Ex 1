@@ -1,7 +1,28 @@
 use std::io;
 fn verificar_senha(senha: &str) -> bool
 {
-    if senha.len() >= 8 
+  let mut _is_upper = false;
+  let mut _is_digit = false;
+  
+  for i in senha.chars()
+    {
+      if i.is_uppercase()
+      {
+        _is_upper = true;
+        break;
+      }
+    }
+  
+    for i in senha.chars()
+    {
+      if i.is_digit(10)
+      {
+        _is_digit = true;
+        break;
+      }
+    }
+  
+    if senha.len() >= 8 && _is_upper == true && _is_digit == true
     {
       return true;
     } 
@@ -9,10 +30,6 @@ fn verificar_senha(senha: &str) -> bool
     {
       return false;
     }
-
-    
-    
-    
 }
 
 
@@ -20,13 +37,13 @@ fn verificar_senha(senha: &str) -> bool
 
 fn main() 
 {
-  print!("Digite sua senha: ");
+  println!("Digite sua senha: ");
   let mut entrada = String::new();
   io::stdin()
       .read_line(&mut entrada)
       .expect("ERRO: digite novamente");
 
-  
+
   loop 
   {
 
@@ -38,14 +55,14 @@ fn main()
       else
       {
         println!("Senha inválida!");
-        print!("Digite outra senha: ");
+        println!("Digite outra senha: ");
         io::stdin()
         .read_line(&mut entrada)
         .expect("ERRO: digite novamente");
       }
-  
-  }
-  
 
-  
+  }
+
+
+
 }
