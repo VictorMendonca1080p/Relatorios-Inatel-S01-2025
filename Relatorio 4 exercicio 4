@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+func VerificarLogin(usuario, senha string) bool {
+	if usuario == "senha" && senha == "admin" {
+		return true
+	} else {
+		return false
+	}
+}
+
+func main() {
+	finalizador := 1
+	for finalizador != 1 {
+		fmt.Println("Digite seu usuario")
+		var usuario string
+		fmt.Scan(&usuario)
+
+		fmt.Println("Digite sua senha")
+		var senha string
+		fmt.Scan(&senha)
+
+		if VerificarLogin(usuario, senha) {
+			fmt.Println("Login bem-sucedido!!! :) ")
+			finalizador = 1
+			break
+		} else {
+			fmt.Println("Usuario ou senha incorretos, Tente novamente: >:( ")
+		}
+	}
+
+}
