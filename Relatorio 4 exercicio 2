@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Digite um numero: ")
+	var numero int
+	fmt.Scanln(&numero)
+
+	switch {
+		case numero%2 == 0:
+			fmt.Println("O numero é par")
+		default:
+			fmt.Println("O numero é impar")
+	}
+
+}
