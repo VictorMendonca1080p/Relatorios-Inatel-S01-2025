@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int somarArray(float arr[], int tamanho)
+{
+  float soma = 0;
+
+  for(int i = 0; i < tamanho; i++)
+    {
+      soma += arr[i];
+    }
+
+  return soma;
+}
+
+int main() 
+{
+  cout << "digite quantas notas tem a inserir" << endl;
+  int tamanho;
+  cin >> tamanho;
+  
+  cout << "digite o valor de cada nota" << endl;
+  float *vetor = NULL;
+  vetor = new float[tamanho];
+  
+  for(int i = 0; i < tamanho; i++)
+    {
+      do
+      {
+        cout << "nota " << i+1 << " = ";
+        cin >> vetor[i];
+        cout << endl;
+      }while(vetor[i] < 0 || vetor[i] > 10);
+    }
+
+  float soma = somarArray(vetor, tamanho);
+  delete [] vetor;
+  
+  float media = soma / tamanho;
+  
+  cout << "A media do aluno é = " << media << endl;
+
+  if(media >= 7)
+  {
+    cout << "O aluno foi aprovado!!!" << endl;
+  }
+  else
+  {
+    cout << "O aluno foi reprovado :(" << endl;
+  }
+  
+  
+  return 0;
+}
