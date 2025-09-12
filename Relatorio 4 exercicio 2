@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int somarArray(float arr[], int tamanho)
+{
+  float soma = 0;
+
+  for(int i = 0; i < tamanho; i++)
+    {
+      soma += arr[i];
+    }
+
+  return soma;
+}
+
+int main() 
+{
+  cout << "digite o tamanho do vetor" << endl;
+  int tamanho;
+  cin >> tamanho;
+  
+  cout << "digite valores para o vetor" << endl;
+  float *vetor = NULL;
+  vetor = new float[tamanho];
+  
+  for(int i = 0; i < tamanho; i++)
+    {
+      cout << "slot " << i << " = ";
+      cin >> vetor[i];
+      cout << endl;
+    }
+
+  float soma = somarArray(vetor, tamanho);
+  cout << "Soma dos valores no vetor = " << soma << endl;
+  
+  delete [] vetor;
+  return 0;
+}
