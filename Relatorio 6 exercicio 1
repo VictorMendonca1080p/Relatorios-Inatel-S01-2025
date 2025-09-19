@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+class Personagem
+{
+public:
+    string nome;
+    int nivel;
+    int dano;
+    int vida;
+
+    //construtor
+    Personagem(string nomeP, int nivelP, int danoP, int vidaP)
+    {
+        this->nome = nomeP;
+        this->nivel = nivelP;
+        this->dano = danoP;
+        this->vida = vidaP;
+    }
+
+    void atacar(Personagem ator, Personagem &alvo)
+    {
+        alvo.vida -= ator.dano;
+        cout << ator.nome << "ataca " << alvo.nome << " com ferocidade!!!" << endl;
+    }
+
+};
+
+
+
+int main()
+{
+    Personagem Heroi("Heroi", 10, 10, 100);
+    Personagem Vilao("Vilao", 10, 10, 200);
+
+    Heroi.atacar(Heroi, Vilao);
+
+    cout << "vida de " << Heroi.nome << " = " << Heroi.vida << endl;
+    cout << "vida de " << Vilao.nome << " = " << Vilao.vida << endl;
+
+    return 0;
+}
