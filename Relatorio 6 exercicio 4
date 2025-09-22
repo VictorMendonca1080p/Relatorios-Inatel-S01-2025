@@ -1,0 +1,111 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+class SerVivo
+{
+protected:
+    string nome;
+
+public:
+    //construtor
+    SerVivo(string id)
+    {
+        this->nome = id;
+    }
+
+    void virtual apresentar()
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou um ser vivo" << endl;
+    }
+
+    void setName(string newName)
+    {
+        this->nome = newName;
+    }
+
+};
+
+class Humano : public SerVivo
+{
+
+public:
+    //construtor
+    Humano() : SerVivo("")
+    {
+
+    }
+  
+    void apresentar() override
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou um Humano" << endl;
+    }
+
+};
+
+class Elfo : public SerVivo
+{
+
+public:
+    //construtor
+    Elfo() : SerVivo("")
+    {
+
+    }
+
+    void apresentar() override
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou um Elfo" << endl;
+    }
+
+};
+class Fada : public SerVivo
+{
+
+public:
+    //construror
+    Fada() : SerVivo("")
+    {
+
+    }
+
+    void apresentar() override
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou uma Fada" << endl;
+    }
+
+};
+
+
+
+int main()
+{
+    SerVivo* serH;
+    serH = new Humano;
+    serH->setName("Jao");
+
+    Elfo* serE;
+    serE = new Elfo;
+    serE->setName("Nicolateus");
+
+    Fada* serF;
+    serF = new Fada;
+    serF->setName("Fabanaba");
+
+    
+    list<SerVivo*> bau;
+    bau.push_back(serH);
+    bau.push_back(serE);
+    bau.push_back(serF);
+
+    for (SerVivo* ser : bau) 
+    {
+        ser->apresentar();
+    }
+    
+
+
+
+    return 0;
+}
