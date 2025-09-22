@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+class Pessoa
+{
+protected:
+    string nome;
+
+public:
+    //construtor
+    Pessoa(string nomeP)
+    {
+        this->nome = nomeP;
+    }
+
+    void virtual apresentar()
+    {
+        cout << "Ola, meu nome e " << nome << "e eu sou uma pessoa." << endl;
+    }
+
+};
+
+class Professor : public Pessoa
+{
+private:
+    string disciplina;
+
+public:
+    //construtor
+    Professor(string funcao) : Pessoa("Professor X dos X man")
+    {
+        this->disciplina = funcao;
+    }
+
+    void apresentar() override
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou um professor de disciplina de " << disciplina << endl;
+    }
+};
+
+class Aluno : public Pessoa
+{
+private:
+    string matricula;
+
+public:
+    //construtor
+    Aluno(string curso) : Pessoa("Chico bento da turma da monica")
+    {
+        this->matricula = curso;
+    }
+
+    void apresentar() override
+    {
+        cout << "Ola, meu nome e " << nome << " e eu sou umaluno de " << matricula << endl;
+    }
+};
+
+
+
+int main()
+{
+    Pessoa* Prof = new Professor("Calculo 3");
+    Pessoa* Dude = new Aluno("Engenharia de software");
+
+    Prof->apresentar();
+    Dude->apresentar();
+
+    
+    delete Prof;
+    delete Dude;
+    return 0;
+}
