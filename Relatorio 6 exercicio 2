@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+class Pessoa
+{
+private:
+    string nome;
+    int idade;
+
+public:
+    //construtor
+    Pessoa(string nomeP, int idadeP)
+    {
+        this->nome = nomeP;
+        this->idade = idadeP;
+    }
+
+    void setNome(string nameoverrite)
+    {
+        this->nome = nameoverrite;
+    }
+
+    void setIdade(int idadeoverrite)
+    {
+        this->idade = idadeoverrite;
+    }
+
+    void mostrarNome()
+    {
+        cout << "Ola, meu nome é " << nome << endl;
+    }
+
+    void mostrarIdade()
+    {
+        cout << "tenho " << idade << " anos" << endl;
+    }
+
+};
+
+class Protagonista : public Pessoa
+{
+private:
+    int nivel;
+public:
+    //construtor
+    Protagonista(int nivelP) :Pessoa("", 0)
+    {
+        this->nivel = nivelP;
+    }
+
+    void mostrarNivel()
+    {
+        cout << "Eu sou nivel " << nivel << endl;
+    }
+};
+
+class Personagem : public Pessoa
+{
+private:
+    int rank;
+public:
+    //construtor
+    Personagem(int rankP) :Pessoa("", 0)
+    {
+        this->rank = rankP;
+    }
+
+    void mostrarRank()
+    {
+        cout << "Meu rank social é " << rank << endl;
+    }
+};
+
+
+
+int main()
+{
+    Protagonista Heroi(10);
+    Heroi.setNome("ULTRA JONAS");
+    Heroi.setIdade(20);
+
+    Heroi.mostrarNome();
+    Heroi.mostrarIdade();
+    Heroi.mostrarNivel();
+
+    Personagem NPC(7);
+    NPC.setNome("Antonio");
+    NPC.setIdade(50);
+
+    NPC.mostrarNome();
+    NPC.mostrarIdade();
+    NPC.mostrarRank();
+
+    return 0;
+}
