@@ -104,7 +104,9 @@ int main()
         ser->apresentar();
     }
     
-
+    delete serH;
+    delete serE;
+    delete serF;
 
 
     return 0;
