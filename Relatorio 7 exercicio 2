@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+
+public class Pokemon
+{
+	public string nome { get; private set; } = "Mourice";
+	
+	//construtor
+	public Pokemon(string Nome)
+	{
+		this.nome = Nome;
+	}
+	
+	//metodos
+	public virtual void Atacar()
+	{
+		Console.WriteLine($"{nome} usa CANHAO ORBITAL DE OBLITERACAO SUPREMA PREMIUM GOLD LIMITED EDITION!!!");
+	}
+
+}
+
+public class PokemonDeFogo : Pokemon
+{
+	private string tipo;
+	
+	
+	//construtor
+	public PokemonDeFogo(string nome, string Tipo) : base(nome)
+	{
+		this.tipo = Tipo;
+	}
+	
+	//metodos
+	public override void Atacar()
+	{
+		Console.WriteLine($"{nome} lanca uma bola de fogo");
+	}
+
+}
+
+public class PokemonDeAgua : Pokemon
+{
+	private string tipo;
+	
+	
+	//construtor
+	public PokemonDeAgua(string nome, string Tipo) : base(nome)
+	{
+		this.tipo = Tipo;
+	}
+	
+	//metodos
+	public override void Atacar()
+	{
+		Console.WriteLine($"{nome} taca uma rajada de agua a 120 bpm");
+	}
+
+}
+					
+public class Program
+{
+	public static void Main()
+	{
+		PokemonDeFogo Charizard = new PokemonDeFogo("Charizard","fogo");
+		PokemonDeAgua Blastoise = new PokemonDeAgua("Blastoise","agua");
+		
+		List<Pokemon> Pokevan = new List <Pokemon>();
+		Pokevan.Add(Charizard);
+		Pokevan.Add(Blastoise);
+		
+		foreach (var item in Pokevan)
+        {
+            item.Atacar(); 
+        }
+	}
+}
