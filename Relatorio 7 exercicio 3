@@ -1,0 +1,100 @@
+using System;
+using System.Collections.Generic;
+
+public class Feitico
+{
+	private string nome;
+	
+	//construtor
+	public Feitico(string Nome)
+	{
+		this.nome = Nome;
+	}
+}
+
+public class Grimorio
+{
+	public List<Feitico> spellsColection;
+	
+	//construtor
+	public Grimorio(List<Feitico> ListaFeiticos)
+	{
+		this.spellsColection = ListaFeiticos;	
+	}
+
+	//metodos
+	public void ADDspell(Feitico newSpell)
+	{
+		spellsColection.Add(newSpell);
+		Console.WriteLine($"Feitico adicionado.");
+	}
+		
+}
+
+public class Ferramentas
+{
+	private string nome;
+	
+	//construtor
+	public Ferramentas(string NOME)
+	{
+		this.nome = NOME;
+	}
+	
+	//metodos
+	public void Check()
+	{
+		Console.WriteLine($"{nome}");
+	}
+	
+}
+
+public class Maga
+{
+	private string nome;
+	public Grimorio grimorio {get; private set;}
+	
+	public List<Ferramentas> ToolKit;
+	
+	//construtor
+	public Maga(string NOME, List<Ferramentas> TOOLS)
+	{
+		this.nome = NOME;
+		this.ToolKit = TOOLS;
+	}
+	
+	//metodos
+	public void CheckTools()
+	{
+		foreach (var item in ToolKit)
+		{
+			item.Check();
+		}
+	}
+}
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		List<Ferramentas> DefaultToolkit = new List<Ferramentas>();
+		
+		DefaultToolkit.Add(new Ferramentas("enxada"));
+		DefaultToolkit.Add(new Ferramentas("moedor de alho"));
+		DefaultToolkit.Add(new Ferramentas("agulha de trico"));
+		
+		Maga Friren = new Maga("Friren", DefaultToolkit);
+		
+		//Friren.grimorio.ADDspell(new Feitico("Bola de fogo"));
+		//Friren.grimorio.ADDspell(new Feitico("raio de gelo L.A.Z.E.R"));
+		//Friren.grimorio.ADDspell(new Feitico("Escudo hexagonal paralelepipediano"));
+		
+		
+		foreach (var item in Friren.ToolKit)
+		{
+			item.Check();	
+		}
+		
+	}
+}
