@@ -1,0 +1,40 @@
+using System;
+
+
+public class MembroDaSociedade
+{
+	private string nome;
+	private string raca;
+	private string funcao; 
+	
+	public MembroDaSociedade(string Nome, string Raca, string Funcao)
+	{
+		this.nome = Nome;
+		this.raca = Raca;
+		this.funcao = Funcao;
+		
+		Console.WriteLine($"{nome} fez sua carterinha da sociedade!");
+	}
+	
+	public virtual void Descrever()
+	{
+		Console.WriteLine($"Ola sou {nome}, um {raca} {funcao}");
+	}
+
+}
+
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		MembroDaSociedade Aragon = new MembroDaSociedade("Aragon","Humano","Guardiao");
+	
+		Aragon.Descrever();
+		
+		MembroDaSociedade Legolas = new MembroDaSociedade("Legolas","Elfo","Arqueiro");
+		
+		Legolas.Descrever();
+	}
+}
