@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+
+public class MonstroSombrio
+{
+	public string nome {get; private set;}
+	
+	//construtor
+	public MonstroSombrio(string Nome)
+	{
+		this.nome = Nome;
+	}
+
+	//metodos
+	public virtual void Mover()
+	{
+		Console.WriteLine($"{nome} se move");
+	}
+}
+
+public class Zumbi : MonstroSombrio
+{
+	private int velocidade;
+	//construtor
+	public Zumbi(string nome, int VELOCIDADE) : base(nome)
+	{
+		this.velocidade = VELOCIDADE;
+	}
+	
+	public override void Mover()
+	{
+		Console.WriteLine($"{nome} se move {velocidade} casas lentamente");
+	}
+
+}
+
+public class Espectro : MonstroSombrio
+{
+	private int velocidade;
+	//construtor
+	public Espectro(string nome, int VELOCIDADE) : base(nome)
+	{
+		this.velocidade = VELOCIDADE;
+	}
+	
+	public override void Mover()
+	{
+		Console.WriteLine($"{nome} se move {velocidade} casas que nem uma bala!!!");
+	}
+
+}
+
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		Zumbi jonathan = new Zumbi("jonatham", 2);
+		Espectro pedro = new Espectro("pedro", 100);
+		
+		List<MonstroSombrio> Horda = new List<MonstroSombrio>();
+		
+		Horda.Add(jonathan);
+		Horda.Add(pedro);
+		
+		foreach (var item in Horda)
+		{
+			item.Mover();
+		}
+		
+	}
+}
