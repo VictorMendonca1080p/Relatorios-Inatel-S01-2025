@@ -3,12 +3,18 @@ using System.Collections.Generic;
 
 public class Feitico
 {
-	private string nome;
+	public string nome {get; private set;}
 	
 	//construtor
 	public Feitico(string Nome)
 	{
 		this.nome = Nome;
+	}
+	
+	public void Cast()
+	{
+		Console.WriteLine($"{nome}");
+		
 	}
 }
 
@@ -17,14 +23,15 @@ public class Grimorio
 	public List<Feitico> spellsColection;
 	
 	//construtor
-	public Grimorio(List<Feitico> ListaFeiticos)
+	public Grimorio(List<Feitico> SpellList)
 	{
-		this.spellsColection = ListaFeiticos;	
+		this.spellsColection = SpellList;
 	}
-
+	
 	//metodos
-	public void ADDspell(Feitico newSpell)
+	public void ADDspell(string SpellName)
 	{
+		Feitico newSpell = new Feitico("{SpellName}");
 		spellsColection.Add(newSpell);
 		Console.WriteLine($"Feitico adicionado.");
 	}
@@ -52,7 +59,7 @@ public class Ferramentas
 public class Maga
 {
 	private string nome;
-	public Grimorio grimorio {get; private set;}
+	public Grimorio SpellBook {get; private set;}
 	
 	public List<Ferramentas> ToolKit;
 	
@@ -61,6 +68,7 @@ public class Maga
 	{
 		this.nome = NOME;
 		this.ToolKit = TOOLS;
+		this.SpellBook = new Grimorio(new List<Feitico>());
 	}
 	
 	//metodos
@@ -86,11 +94,9 @@ public class Program
 		
 		Maga Friren = new Maga("Friren", DefaultToolkit);
 		
-		//Friren.grimorio.ADDspell(new Feitico("Bola de fogo"));
-		//Friren.grimorio.ADDspell(new Feitico("raio de gelo L.A.Z.E.R"));
-		//Friren.grimorio.ADDspell(new Feitico("Escudo hexagonal paralelepipediano"));
+		Friren.SpellBook.ADDspell("bola de fogo");
 		
-		
+		Console.WriteLine($"ferramentas");
 		foreach (var item in Friren.ToolKit)
 		{
 			item.Check();	
