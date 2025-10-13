@@ -1,0 +1,50 @@
+from ast import Return
+
+class ArmaCorpoAcorpo:
+  #construtor
+  def __init__(self, nome: str):
+    self.nome = nome
+ 
+
+class PhantomThieves:
+  #construtor
+  def __init__(self, nome: str, arma: ArmaCorpoAcorpo):
+    self.__nome = nome
+    self.arma = arma
+
+  #metodos
+  def get_nome(self):
+    return self.__nome
+
+  def get_arma(self):
+    return self.arma
+
+  def set_arma(self, newArma: ArmaCorpoAcorpo):
+    self.arma = newArma
+    
+
+
+class Joker:
+
+#construtor
+  def __init__(self, nome: str, arma: ArmaCorpoAcorpo, equipe: list[PhantomThieves]):
+    self.__nome = nome
+    self.arma = arma
+    self.
+  #metodos
+  def get_nome(self):
+    return self.__nome
+
+  def get_arma(self):
+    return self.arma
+
+  def set_arma(self, newArma: ArmaCorpoAcorpo):
+    self.arma = newArma
+
+
+
+
+
+if __name__ == "__main__":
+    print("--- Inicializando ---")
+
