@@ -17,7 +17,7 @@ class PhantomThieves:
     return self.__nome
 
   def get_arma(self):
-    return self.arma
+    return self.arma.nome
 
   def set_arma(self, newArma: ArmaCorpoAcorpo):
     self.arma = newArma
@@ -29,22 +29,40 @@ class Joker:
 #construtor
   def __init__(self, nome: str, arma: ArmaCorpoAcorpo, equipe: list[PhantomThieves]):
     self.__nome = nome
-    self.arma = arma
-    self.
+    self.__arma = arma
+    self.equipe = equipe
+    
   #metodos
   def get_nome(self):
     return self.__nome
 
   def get_arma(self):
-    return self.arma
+    return self.__arma
 
   def set_arma(self, newArma: ArmaCorpoAcorpo):
-    self.arma = newArma
+    self.__arma = newArma
 
+  def mostrar_equipe(self):
+    for membro in self.equipe:
+      print(f"Nome = {membro.get_nome()} Arma = {membro.get_arma()}")
 
 
 
 
 if __name__ == "__main__":
     print("--- Inicializando ---")
+
+armaJoker = ArmaCorpoAcorpo("Faca de pao suprema")
+
+membro_1 = PhantomThieves("junin", ArmaCorpoAcorpo("bastao"))
+membro_2 = PhantomThieves("claudin", ArmaCorpoAcorpo("vara de pesca"))
+
+
+equipePhantom: list[PhantomThieves] = [membro_1, membro_2]
+
+Protagonista = Joker("Joker", armaJoker, equipePhantom)
+
+Protagonista.mostrar_equipe()
+
+
 
