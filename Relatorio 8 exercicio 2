@@ -1,0 +1,51 @@
+from ast import Return
+class Heroi:
+  #construtor
+  def __init__(self, nome: str, funcao: str):
+    self.__nome = nome
+    self.__funcao = funcao
+
+  #getters e setters
+  def get_nome(self):
+    return self.__nome
+
+  def set_nome(self, newName):
+    self.__nome = newName
+
+  def get_funcao(self):
+    return self.__funcao
+
+  def set_funcao(self, newFuncao):
+    self.__funcao = newFuncao
+
+  #metodos
+  def Usar_Ultimate(self):
+    return print(f"{self.get_nome()} usa sua ultimate!!!")
+
+
+
+class Tanque(Heroi):
+  #metodos
+  def Usar_Ultimate(self):
+    return print(f"{self.get_nome()} atropela o combate com sua IVESTIDA SUPREMA!!!")
+
+
+class Dano(Heroi):
+  #metodos
+  def Usar_Ultimate(self):
+    return print(f"{self.get_nome()} oblitera a area usando TEMPESTADE DO CAOS!!!")
+
+
+if __name__ == "__main__":
+    print("--- Inicializando ---")
+
+jogador_1 = Tanque("O Parede", "Tanque")
+jogador_2 = Dano("A Furia", "Dano")
+
+partida = []
+
+partida.append(jogador_1)
+partida.append(jogador_2)
+
+for personagem in partida:
+  personagem.Usar_Ultimate()
