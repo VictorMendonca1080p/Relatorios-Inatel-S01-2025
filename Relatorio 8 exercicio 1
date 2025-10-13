@@ -1,0 +1,54 @@
+class Personagem:
+  #construtor
+  def __init__(self, nome: str, vida: int, resistencia: int):
+    self.__nome = nome
+    self.__vida = vida
+    self.__resistencia = resistencia
+
+  #getters e setters
+  def get_vida(self):
+    return self.__vida
+
+  def set_vida(self, newHP):
+    self.__vida = newHP
+
+  def get_nome(self):
+    return self.__nome
+
+  def get_resistencia(self):
+    return self.__resistencia
+
+#metodos
+def Apresentar(self):
+  print(f"nome:{self.nome} , vida:{self.vida} , resistencia:{self.resistencia} ")
+
+
+
+class Cavaleiro(Personagem):  
+
+  __armadura_pesada: bool
+
+  #getters
+  def get_armadura_pesada(self):
+    return self.armadura_pesada
+
+  #metodos
+  def Set_armadura_pesada(self, temArmadura: bool):
+    self.__armadura_pesada = temArmadura
+
+  def Apresentar(self):
+    return print(f"ola sou o cavaleiro {self.get_nome()}, tenho {self.get_vida()} de HP e {self.get_resistencia()} de resistencia")
+
+
+
+
+
+if __name__ == "__main__":
+    print("--- Inicializando ---")
+
+Heroi = Cavaleiro("Jonas", 100, 200)
+Heroi.Set_armadura_pesada(True)
+
+Heroi.Apresentar()
+
+
