@@ -1,3 +1,4 @@
+
 from ast import Return
 from abc import ABC, abstractmethod
 
@@ -33,12 +34,11 @@ class Faccao(NetRunner):
   def __init__(self, faccao: list[Cibernetico]):
     self.faccao = faccao
   
-  ############################## PROBLEMA ##################################
   #metodos
   def HackGeral(self, alvo: str):
     for unit in self.faccao:
       unit.realizar_hack({alvo})
-#######################################################################
+
 
 if __name__ == "__main__":
     print("--- Inicializando ---")
@@ -47,6 +47,6 @@ membro1 = NetRunner(Implante(100, "hackear bicicletas"))
 membro2 = NetRunner(Implante(200, "pes turbo"))
 membro3 = NetRunner(Implante(150, "visao no escuro mas só embaixo d'agua"))
 
-TurmaDosPlayboy = Faccao(list[Cibernetico] == [membro1, membro2, membro3])
+ListaDaFaccao = Faccao([membro1, membro2, membro3])
 
-TurmaDosPlayboy.HackGeral("carro")
+ListaDaFaccao.HackGeral("carro")
