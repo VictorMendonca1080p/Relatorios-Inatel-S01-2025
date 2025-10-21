@@ -1,7 +1,7 @@
 class Musico
   attr_accessor :nome, :instrumento
   
-  def initialie(nome, instrumento)
+  def initialize(nome, instrumento)
     @nome = nome
     @instrumento = instrumento
   end
@@ -29,6 +29,18 @@ class Violinista < Musico
 end
 
 class Maestro
-  attr_accessor 
+  attr_accessor :equipe
+  
+  def initialize (equipe = [])
+    @equipe = equipe
+  end
+  
   def iniciar ensaio(peca)
+    @equipe.each do |M|
+      M.tocar_partitura
+    end
+    
+  end 
+  
+end
     
