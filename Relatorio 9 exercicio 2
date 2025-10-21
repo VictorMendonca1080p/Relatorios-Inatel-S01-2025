@@ -1,0 +1,34 @@
+class Musico
+  attr_accessor :nome, :instrumento
+  
+  def initialie(nome, instrumento)
+    @nome = nome
+    @instrumento = instrumento
+  end
+  
+  def tocar_partitura(peca)
+    puts "#{@nome} toca a peca #{peca}"
+    raise NotImplementedError, "classe tocar_partitura nao implementada"
+  end
+end
+
+class Violinista < Musico
+    
+  def tocar_partitura(peca)
+  puts "#{@nome} toca seu #{peca}"
+  raise NotImplementedError, "classe tocar_partitura nao implementada"
+  end
+end
+  
+class Violinista < Musico
+    
+  def tocar_partitura(peca)
+  puts "#{@nome} toca seu #{peca}"
+  raise NotImplementedError, "classe tocar_partitura nao implementada"
+  end
+end
+
+class Maestro
+  attr_accessor 
+  def iniciar ensaio(peca)
+    
