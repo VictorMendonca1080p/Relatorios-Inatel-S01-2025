@@ -20,7 +20,7 @@ class Violinista < Musico
   end
 end
   
-class Violinista < Musico
+class Pianista < Musico
     
   def tocar_partitura(peca)
   puts "#{@nome} toca seu #{peca}"
@@ -35,12 +35,24 @@ class Maestro
     @equipe = equipe
   end
   
-  def iniciar ensaio(peca)
-    @equipe.each do |M|
+  def iniciar_ensaio
+    @equipe.each do M
       M.tocar_partitura
     end
-    
-  end 
+  end
   
 end
+
+pessoa1 = Violinista.new("marcelo", "violino")
+pessoa2 = Pianista.new("vinicius", "piano")
+
+maestro = Maestro.new([pessoa1,pessoa2])
+maestro.iniciar_ensaio()
+
+
+
+
+
+
+
     
