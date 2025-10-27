@@ -1,0 +1,74 @@
+class Pokemon {
+    #vida
+    nome 
+    tipo
+
+    constructor(Nome,vida,Tipo){
+        this.#vida = vida
+        this.nome = Nome
+        this.tipo = Tipo
+    }
+
+    getVida(){
+        return this.#vida
+    }
+
+    receberDano(dano){
+        this.#vida = this.#vida - dano
+
+        if(this.#vida < 0 ){
+            this.#vida = 0
+        }
+    }
+
+    atacar(alvo){
+        console.log({nome},"ataca",{alvo})
+    }
+
+}
+
+class PokemonFogo extends Pokemon{
+    bonusAtaque
+    constructor(Nome, Vida , bonus){
+      super()
+      this.nome = Nome
+      this.vida = Vida
+      this.tipo = "fogo"
+      this.bonusAtaque = bonus
+     }  
+
+    atacar(alvo){
+        console.log(alvo.nome, "recebe uma rajada de chamas")
+    }
+}
+
+class PokemonAgua extends Pokemon{
+    #curaBase
+
+    constructor(Nome, Vida, cura){
+      super()
+      this.nome = Nome
+      this.vida = Vida
+      this.tipo = "agua"
+      this.#curaBase = cura
+    }
+
+    atacar(alvo){
+        console.log(alvo.nome, "toma um caldo pelas ondas")
+    }
+}
+
+
+//main
+charizard = new PokemonFogo("charizard", 100, 20)
+blastoize = new PokemonAgua("Blastoize", 200, "agua", 30)
+
+
+charizard.atacar(blastoize)
+blastoize.receberDano(10)
+
+
+blastoize.atacar(charizard)
+charizard.receberDano(20)
+
+
