@@ -1,0 +1,83 @@
+class ODMGear {
+  modelo
+  #gas = 0
+  
+  constructor(Modelo){
+    this.modelo = Modelo
+  }
+  
+  get_gas(){
+    return this.#gas
+  }
+  
+  refill_gas(qtd_gas){
+    this.#gas =+ qtd_gas
+  }
+  
+  usarGas(quantidade){
+    this.#gas -= quantidade
+  }
+  
+}
+
+
+
+class Soldado{
+  nome 
+  #gear
+  
+  constructor(Nome, Gear){
+    this.nome = Nome
+    this.#gear = Gear  
+  }
+  
+  explorar(){
+    console.log(this.nome, "faz uma varredura na area")
+  }
+  
+  verificarEqp(){
+    console.log("esse soldado possui uma gear do tipo", this.#gear.modelo)
+  }
+  
+}7
+
+
+
+class Esquadrao{
+  lider
+  membros
+  constructor(Lider, Membros){
+    this.lider = Lider
+    this.membros = Membros
+  }
+  
+  adicionarMembro(novoMembro){
+    membros.push(novoMembro)
+  }
+ 
+  //relatarStatus(){
+  //  for (soldado in membros) {
+  //    console.log(soldado.nome)
+  //  }
+  //}
+
+  explorar(){
+    console.log(this.lider, "faz uma varredura na area com sua aquipe")
+  }
+}
+
+
+//main
+
+cadete09 = new Soldado("Vinicius", new ODMGear("destroyer230.7"))
+
+cadete09.verificarEqp()
+
+cadete08 = new Soldado("Marcos", new ODMGear("destroyer230.7"))
+cadete07 = new Soldado("Julio", new ODMGear("destroyer230.7"))
+
+general = new Soldado("GENERAL SUPREMO", new ODMGear("obliterator7678"))
+
+equipe = new Esquadrao(general, [cadete07,cadete08, cadete09])
+//equipe.relatarStatus()
+
