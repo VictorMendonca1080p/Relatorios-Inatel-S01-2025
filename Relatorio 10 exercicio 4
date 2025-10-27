@@ -1,0 +1,75 @@
+class Hunter{
+  nome 
+  #local
+  #idade 
+  
+  constructor(NOME, IDADE, LOCAL){
+    this.nome = NOME
+    this.#idade = IDADE
+    this.#local = LOCAL
+  }
+}
+
+class Especialista extends Hunter {
+  #habilidade
+  
+  constructor(HABILIDADE, NOME){
+    super()
+    this.nome = NOME
+    this.#habilidade = HABILIDADE
+  }
+  
+  rastrearLocal(lat, long){
+    console.log("rastreando o setor", lat, long)
+  }
+}
+
+class Manipulador extends Hunter {
+  #alvo
+  
+  constructor(NOME){
+    super()
+    this.nome = NOME
+  }
+  
+  rastrearLocal(lat, long){
+    console.log("rastreando o setor", lat, long)
+  }
+}
+
+
+class Batalhao{
+  hunters
+  
+  constructor(equipe){
+    this.hunters = equipe
+  }
+  
+  addHunter(New_hunter){
+    hunters.push(New_hunter)
+  }
+  
+  getHuntQtd(){
+    return hunters.lenght
+  }
+  
+  rastreamento(lat,long){
+    hunters.forEach(element)
+      element.rastrearLocal(lat, long)
+    
+  }
+  
+  
+}
+
+
+cara1 = new Especialista("Jonas", "soco do trovao")
+cara2 = new Manipulador("Aurelio")
+
+equipe = new Batalhao([cara1,cara2])
+
+equipe.getHuntQtd()
+
+equipe.rastreamento(10, 12)
+
+
