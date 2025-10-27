@@ -1,0 +1,76 @@
+class Criatura{
+  nome 
+  perigo
+  
+  constructor(Nome, Perigo)
+  {
+    this.nome = Nome 
+    this.perigo = Perigo
+  }
+}
+
+class Diario{
+  #autor
+  enigmas 
+  criaturas
+  
+  constructor(Autor){
+    this.#autor = Autor 
+  }
+  
+  get_autor(){
+    return this.#autor
+  }
+  
+  addEnigma(numero, enigma){
+    enigma.map(numero, enigma)
+  }
+  decodificar(enigma, numero){
+    enigma.find(enigma, numero)
+  }
+}
+
+class Protagonista{
+  diario = new Diario("Galinha pintadinha")
+  nome 
+  idade
+  
+  constructor(Nome, Idade){
+    this.nome = Nome 
+    this.idade = Idade
+  }
+}
+
+class Personagem extends Protagonista{
+  constructor(Nome, Idade){
+    super()
+    this.nome = Nome 
+    this. idade = Idade 
+  }
+}
+
+class CabanaDoMisterio{
+  visitantes
+  funcionarios
+  diario = new Diario("joe doe do roblox")
+  
+  constructor(dir){
+    this.diario = dir
+  }
+  
+  listarFuncionarios(){
+    funcionarios.forEach((element) => console.log(element.nome))
+    
+  }
+  
+  
+}
+pessoa1 = new Personagem("ana", 20)
+pessoa2 = new Personagem("julia", 30)
+pessoa3 = new Personagem("clausio", 24)
+
+cabana = new CabanaDoMisterio(new Diario("Shrek"))
+cabana.funcionarios = [pessoa1, pessoa2, pessoa3]
+
+cabana.listarFuncionarios()
+
