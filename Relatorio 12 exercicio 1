@@ -1,0 +1,66 @@
+data Bebida = Bebida {nome :: String, tipo :: String, preco :: double }
+deriving (Show)
+
+data statusPedido = statusPedido { Aberto | Entregue | Cancelado }
+deriving (Show, Eq)
+
+data Pedido = Pedido { pedidos :: [Bebida], status :: statusPedido }
+deriving (Show)
+
+precoBebida :: [Bebida] -> double
+precoBebida (Bebida _ _ p) = p
+
+calcularTotal :: [Bebida] -> double
+calcularTotal total = sum (map precoBebida total)
+
+addTaxa :: double -> double
+addTaxa addTaxa
+  | taxa > 0 = 5.0
+  | otherwise = 0 
+  
+valorTotalPedido :: Pedido -> double
+valorTotalPedido pedido 
+  | statusPedido pedido == Cancelado = 0.0
+  | otherwise total
+    where
+       sub = calcularTotal (pedidos Pedido)
+       taxa = addTaxa sub
+       total = sub + taxa 
+       
+
+primeiraBebida :: Pedido -> String
+primeiraBebida pedido =
+  case pedidos Pedido of 
+    [] -> "Nenhuma Bebida foi comprada ainda"
+    (x:_) -> nome x  
+
+
+sucoDeLaranja = Bebida "suco de laranja" "suco" 10.0
+chocolateQuente = Bebida "chocolate quente" "cremoso" 20.0
+milkshake = Bebida "milkshake" "shake" 30.0
+
+pedido1 = Pedido [sucoDeLaranja, milkshake] Aberto
+pedido2 = Pedido [chocolateQuente, milkshake] Entregue
+pedido3 = Pedido [sucoDeLaranja, chocolateQuente] Cancelado
+
+
+main :: IO ()
+main = do
+  putStr "Pedido 1: "
+  print (valorTotalPedido pedido1)
+  
+  putStr "Pedido 2: "
+  print (valorTotalPedido pedido2)
+  
+  putStr "Pedido 3: "
+  print (valorTotalPedido pedido3)
+  
+  putStr "primeira bebida do pedido 1: "
+  putStr (primeiraBebida pedido1)
+
+
+
+
+
+
+
