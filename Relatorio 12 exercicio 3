@@ -1,0 +1,59 @@
+data Banda = Banda {nome :: String, tipo :: String, preco :: double }
+  deriving (Show)
+
+data status = status { Ativo | Encerrado | Cancelado }
+  deriving (Show, Eq)
+
+data Evento = Evento { bandas :: [Banda], status :: status }
+  deriving (Show)
+
+precoBanda :: [Banda] -> double
+precoBanda (Banda _ _ p) = p
+
+calcularTotal :: [Banda] -> double
+calcularTotal total = sum (map precoBanda total)
+
+CustoTotalEvento :: Evento -> double
+CustoTotalEvento total 
+  | (_:x) == Cancelado = 0 
+  | otherwise = total = (calcularTotal total)*1.2
+  
+
+       
+BandaAbertura :: Evento -> String
+BandaAbertura equipe = 
+  case bandas equipe of 
+    []  -> "Nenhuma banda tocando."  
+    (x:_) -> nome x  
+       
+
+banda1 = Banda "os master swords" "Rock universitário" 100.0
+banda2 = Banda "OS bao na letra" "sertanejo" 20.0
+banda3 = Banda "os welcome to the jungue" "eletronica" 50.0
+
+pedido1 = Evento [banda1, banda2] Aberto
+pedido2 = Evento [banda2, banda3] Entregue
+pedido3 = Evento [banda3, banda1] Cancelado
+
+
+main :: IO ()
+main = do
+  putStr "Pedido 1: "
+  print (CustoTotalEvento pedido1)
+  
+  putStr "Pedido 2: "
+  print (CustoTotalEvento pedido2)
+  
+  putStr "Pedido 3: "
+  print (CustoTotalEvento pedido3)
+  
+  
+  putStr "banda de BandaAbertura 1"
+  print (BandaAbertura pedido1)
+
+
+
+
+
+
+
