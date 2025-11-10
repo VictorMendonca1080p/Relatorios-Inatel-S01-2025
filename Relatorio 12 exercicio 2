@@ -1,0 +1,65 @@
+data Item = Item {nome :: String, tipo :: String, preco :: double }
+  deriving (Show)
+
+data statusPedido = statusPedido { Aberto | Entregue | Cancelado }
+  deriving (Show, Eq)
+
+data CompraZelda = CompraZelda { pedidos :: [Bebida], status :: statusPedido }
+  deriving (Show)
+
+precoItem :: [Item] -> double
+precoItem (Item _ _ p) = p
+
+calcularTotal :: [Item] -> double
+calcularTotal total = sum (map precoItem total)
+
+addTaxa :: double -> double
+addTaxa addTaxa
+  | taxa > 0 = 5.0
+  | otherwise = 0 
+  
+valorTotalPedido :: CompraZelda -> double
+valorTotalPedido pedido 
+  | statusPedido pedido == Cancelado = 0.0
+  | otherwise total
+    where
+       sub = calcularTotal (pedidos Pedido)
+       taxa = addTaxa sub
+       total = sub + taxa 
+       
+calculaDesconto :: CompraZelda -> double
+calculaDesconto compra 
+  | valorTotalPedido compra > 200 = compra * 0.9 
+       
+       
+
+espada = Item "master sword" "espada" 100.0
+escudo = Item "escudo de carvalho" "escudo" 20.0
+ocarina = Item "ocarina of time" "instrumento" 50.0
+
+pedido1 = CompraZelda [espada, escudo] Aberto
+pedido2 = CompraZelda [ocarina, espada] Entregue
+pedido3 = CompraZelda [ocarina, escudo] Cancelado
+
+
+main :: IO ()
+main = do
+  putStr "Pedido 1: "
+  print (valorTotalPedido pedido1)
+  
+  putStr "Pedido 2: "
+  print (valorTotalPedido pedido2)
+  
+  putStr "Pedido 3: "
+  print (valorTotalPedido pedido3)
+  
+  
+  putStr "desconto do pedido 1: "
+  print (calculaDesconto pedido1)
+
+
+
+
+
+
+
