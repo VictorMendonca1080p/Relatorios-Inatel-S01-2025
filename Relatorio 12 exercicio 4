@@ -1,0 +1,68 @@
+data Servico = Servico {nome :: String, tipo :: String, preco :: double }
+  deriving (Show)
+
+data status = status { EmAndamento | Finalizado | Cancelado }
+  deriving (Show, Eq)
+
+data Atendimento = Atendimento { Servicos :: [Servico], status :: status }
+  deriving (Show)
+
+precoServico :: [Servico] -> double
+precoServico (Servico _ _ p) = p
+
+calcularTotal :: [Servico] -> double
+calcularTotal total = sum (map precoServico total)
+
+AtendSize :: Atendimento -> int 
+AtendSize [atend] -> int  
+
+
+CustoTotalAtendimento :: Atendimento -> double
+CustoTotalAtendimento total 
+  | (_:x) == Cancelado = 0 
+  | otherwise precoT
+  where
+    qtd = AtendSize(total)
+    precoT = calcularTotal(total)
+    | qtd > 3 = precoT*1.25
+    | precoT > 500 = precoT*0.9
+  
+
+       
+ServicoAbertura :: Atendimento -> String
+ServicoAbertura equipe = 
+  case Servicos equipe of 
+    []  -> "Nenhuma Servico disponivel."  
+    (x:_) -> nome x  
+       
+
+Servico1 = Servico "massagem" "massagem" 100.0
+Servico2 = Servico "liberação de tensão" "liberação" 20.0
+Servico3 = Servico "sauna" "sauna" 50.0
+
+pedido1 = Atendimento [Servico1, Servico2] Aberto
+pedido2 = Atendimento [Servico2, Servico3] Entregue
+pedido3 = Atendimento [Servico3, Servico1] Cancelado
+
+
+main :: IO ()
+main = do
+  putStr "Pedido 1: "
+  print (CustoTotalAtendimento pedido1)
+  
+  putStr "Pedido 2: "
+  print (CustoTotalAtendimento pedido2)
+  
+  putStr "Pedido 3: "
+  print (CustoTotalAtendimento pedido3)
+  
+  
+  putStr "Servico de ServicoAbertura 1"
+  print (ServicoAbertura pedido1)
+
+
+
+
+
+
+
