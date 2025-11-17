@@ -7,10 +7,12 @@
    (make-pessoa :nome "marcos" :idade 20 :peso 70)
    (make-pessoa :nome "vinicius" :idade 50 :peso 90)
    (make-pessoa :nome "ana" :idade 47 :peso 78)
-   (make-pessoa :nome "jose" :idade 13 :peso 46)
+   (make-pessoa :nome "jose" :idade 13 :peso 46)))
    
 (deffun calculaDosagem (pesoKg idadeAnos)
-  (let ()
-  
-  )
-)
+  (lambda (idadeAnos)
+    (<= (idadeAnos 5) 10))
+  (lambda (idadeAnos)
+    (5 <= (idadeAnos 12) 25))
+  (lambda (pesoKg)
+    (>= (pesoKg 20) 50)))
